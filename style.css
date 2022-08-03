@@ -1,0 +1,66 @@
+header {
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+#startcontainer {
+    margin-top: 20%;
+    margin-left: 25%;
+    margin-right: 25%;
+    line-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.guide {
+    font-weight: bolder; 
+    font-family: sans-serif;
+}
+
+#TYK {
+    font-family: fantasy;
+}
+
+#highscorebtn {
+    color: purple;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 15;
+}
+
+#timer {
+    margin-right: 5%;
+    font-family: sans-serif;
+
+}
+
+#startbtn {
+    color: white;
+    background-color: purple;
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-radius: 20px;
+    font-size: 20px;
+    border-color: purple;
+    cursor: pointer;
+}
+
+#next {
+    display: none;
+    color: white;
+    background-color: purple;
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-radius: 20px;
+    font-size: 20px;
+    border-color: purple;
+    cursor: pointer;
+}
