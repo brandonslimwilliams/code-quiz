@@ -1,13 +1,3 @@
-const sbtn = document.getElementById("startbtn");
-const next =document.getElementById("next");
-const disappear = document.getElementsById("instructions");
-const quiz = document.getElementById('quiz')
-const questionIndex = 0
-let timer = 60;
-let score = 0;
-let time = document.getElementById("timer");
-
-
 var questions = [
     {
       question: "Commonly used data types DO NOT include:",
@@ -36,12 +26,25 @@ var questions = [
     } 
 ]; 
 
-sbtn.addEventListener("click", startGame);
+var timeContainer = document.getElementById("time");
+var score = document.getElementById("score");
+var mainContent = document.getElementById("mainContainer")
+var questionIntro = document.getElementById("question");
+var options = document.getElementById("choices");
+var instructions = document.getElementsByClassName("instructions");
+var startButton = document.querySelector("#start-button"); 
+var results = document.getElementById("results");
+var score = 0;
+var timer = 60;
+var questionIndex = 0
+
+
+startButton.addEventListener("click", startGame);
 
     
 function startGame() {
 
-    sbtn.setAttribute("class", "hidden")
+    startButton.setAttribute("class", "hidden")
 
     setTime();
 
@@ -49,14 +52,14 @@ function startGame() {
 }    
 
 function setTime () {
-time.textContent=timer
+timeContainer.textContent=timer
 let countdown = setInterval(() => {
-    time.textContent = ''
+    timeContainer.textContent = ''
     timer--
-    time.textContent = timer
-    if (time === 0 || questionIndex === questions.length) {
+    timeContainer.textContent = timer
+    if (timer === 0 || questionIndex === questions.length) {
         clearInterval(countdown)
-        endGame()
+        //endGame()
     }
 }, 1000);
 
@@ -65,18 +68,86 @@ let countdown = setInterval(() => {
 
 function questionOne() {
 questionIndex++
-quiz.innerHTML = ''
-disappear.innerHTML = ''
+questionIntro.innerHTML = ''
+instructions.innerHTML = ''
 var questionEl = document.createElement('h1')
 questionEl.setAttribute("id", "theQuest");
-    quiz.appendChild(questionEl);
+    questionIntro.appendChild(questionEl);
     document.getElementById("theQuest").textContent = questions[0].question;
     for(var i=0; i <questions[0].choices.length; i++) {
         var cEle = document.createElement("li");
+        cEle.setAttribute("id", questions[0].choices[i]); 
+        options.appendChild(cEle); 
+        cEle.append(questions[0].choices[i]);
+        cEle.addEventListener("click", function (event) {
+            if (event.target.id === questions[0].answer) {
+                results.textContent = "Correct!"; 
+                score += 20; 
+            } else {
+                results.textContent = "Incorrect!";
+                timer -= 10
+            }
+            console.log(score);
+            questionTwo (); 
+        });
 
 }
 }
-      
+function questionTwo() {
+    questionIndex++
+    questionIntro.innerHTML = ''
+    options.innerHTML = ''
+    var questionEl = document.createElement('h1')
+    questionEl.setAttribute("id", "theQuest");
+        questionIntro.appendChild(questionEl);
+        document.getElementById("theQuest").textContent = questions[1].question;
+        for(var i=0; i <questions[1].choices.length; i++) {
+            var cEle = document.createElement("li");
+            cEle.setAttribute("id", questions[1].choices[i]); 
+            options.appendChild(cEle); 
+            cEle.append(questions[1].choices[i]);
+            cEle.addEventListener("click", function (event) {
+                if (event.target.id === questions[1].answer) {
+                    results.textContent = "Correct!"; 
+                    score += 20; 
+                } else {
+                    results.textContent = "Incorrect!";
+                    timer -= 10
+                }
+                console.log(score);
+                //questionThree (); 
+            });
+    
+    }
+    }
+    function questionThree() {
+        questionIndex++
+        questionIntro.innerHTML = ''
+        instructions.innerHTML = ''
+        var questionEl = document.createElement('h1')
+        questionEl.setAttribute("id", "theQuest");
+            questionIntro.appendChild(questionEl);
+            document.getElementById("theQuest").textContent = questions[0].question;
+            for(var i=0; i <questions[2].choices.length; i++) {
+                var cEle = document.createElement("li");
+                cEle.setAttribute("id", questions[2].choices[i]); 
+                options.appendChild(cEle); 
+                cEle.append(questions[2].choices[i]);
+                cEle.addEventListener("click", function (event) {
+                    if (event.target.id === questions[2].answer) {
+                        results.textContent = "Correct!"; 
+                        score += 20; 
+                    } else {
+                        results.textContent = "Incorrect!";
+                        timer -= 10
+                    }
+                    console.log(score);
+                    //questionFour (); 
+                });
+        
+        }
+        }
+                    
 
 
 
