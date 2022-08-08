@@ -64,3 +64,8 @@ header {
     border-color: purple;
     cursor: pointer;
 }  */
+
+.hidden {
+    display: none;
+  }
+  

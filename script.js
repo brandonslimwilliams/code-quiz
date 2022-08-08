@@ -13,23 +13,14 @@ var questions = [
     question: "Arrays in JavaScript can be used to store ____.",
       choices: [ "1.numbers and strings", "2.other arrays",  "3.booleans", "4.all of the above" ],
       answer: "4.all of the above" 
-    },  
-    {
-        question: "String values must be enclosed within ____ when being assigned to variables.",
-        choices: ["1.commas", "2.curly brackets", "3.quotes", "4.parentheses"],
-        answer: "3.quotes"
-    },
-    {
-        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        choices: ["1.JavaScript", "2.terminal bash", "3.for loops", "4.console.log"],
-        answer: "4.console.log"
-    } 
+    }  
+    
 ]; 
 
 var timeContainer = document.getElementById("time");
 var score = document.getElementById("score");
 var mainContent = document.getElementById("mainContainer")
-var questionIntro = document.getElementById("question");
+var questionIntro = document.getElementById("questions");
 var options = document.getElementById("choices");
 var instructions = document.getElementsByClassName("instructions");
 var startButton = document.querySelector("#start-button"); 
@@ -59,7 +50,7 @@ let countdown = setInterval(() => {
     timeContainer.textContent = timer
     if (timer === 0 || questionIndex === questions.length) {
         clearInterval(countdown)
-        //endGame()
+        endGame()
     }
 }, 1000);
 
@@ -68,8 +59,8 @@ let countdown = setInterval(() => {
 
 function questionOne() {
 questionIndex++
-questionIntro.innerHTML = ''
-instructions.innerHTML = ''
+questionIntro.innerHTML = "";
+instructions.innerHTML =  "";
 var questionEl = document.createElement('h1')
 questionEl.setAttribute("id", "theQuest");
     questionIntro.appendChild(questionEl);
@@ -95,8 +86,8 @@ questionEl.setAttribute("id", "theQuest");
 }
 function questionTwo() {
     questionIndex++
-    questionIntro.innerHTML = ''
-    options.innerHTML = ''
+    questionIntro.innerHTML = "";
+    options.innerHTML = "";
     var questionEl = document.createElement('h1')
     questionEl.setAttribute("id", "theQuest");
         questionIntro.appendChild(questionEl);
@@ -115,15 +106,14 @@ function questionTwo() {
                     timer -= 10
                 }
                 console.log(score);
-                //questionThree (); 
+                questionThree (); 
             });
     
     }
     }
     function questionThree() {
-        questionIndex++
-        questionIntro.innerHTML = ''
-        instructions.innerHTML = ''
+        questionIntro.innerHTML = "";
+        instructions.innerHTML = "";
         var questionEl = document.createElement('h1')
         questionEl.setAttribute("id", "theQuest");
             questionIntro.appendChild(questionEl);
@@ -142,10 +132,17 @@ function questionTwo() {
                         timer -= 10
                     }
                     console.log(score);
-                    //questionFour (); 
+                    questionIndex++
+
+                    
                 });
         
         }
+        }
+
+        function endGame() {
+            questionIntro.innerHTML = "";
+            instructions.innerHTML = "";  
         }
                     
 
