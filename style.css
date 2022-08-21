@@ -5,7 +5,7 @@ header {
 
 }
 
-#startcontainer {
+#start-containe {
     margin-top: 20%;
     margin-left: 25%;
     margin-right: 25%;
@@ -16,12 +16,19 @@ header {
     align-items: center;
 }
 
-.guide {
+#instructions {
     font-weight: bolder; 
     font-family: sans-serif;
 }
 
-#TYK {
+#choices {
+    cursor: pointer;
+  
+    
+
+}
+
+.intro {
     font-family: fantasy;
 }
 
@@ -40,7 +47,7 @@ header {
 
 }
 
-#startbtn {
+#start-button {
     color: white;
     background-color: purple;
     padding: 20px;
@@ -52,7 +59,7 @@ header {
     cursor: pointer;
 }
 
- /* #next {
+ #next {
     display: none;
     color: white;
     background-color: purple;
@@ -63,7 +70,7 @@ header {
     font-size: 20px;
     border-color: purple;
     cursor: pointer;
-}  */
+}  
 
 .hidden {
     display: none;
