@@ -43,6 +43,7 @@ startButton.addEventListener("click", startGame);
 
 function startGame() {
   startButton.setAttribute("class", "hidden");
+  
 
   setTime();
 
@@ -146,15 +147,36 @@ function endGame() {
   questionIntro.innerHTML = "";
   options.innerHTML = "";
   var questionEl = document.createElement("h1");
-  questionEl.textContent =
-    "Game Over! Please type your name to see your score";
+  questionEl.textContent = "Game Over! Please type your name to see your score";
+    
   questionEl.className = "myQuest";
   questionIntro.append(questionEl);
+
 
   var input = document.createElement("input");
   input.setAttribute("placeholder", "Type Your Name");
   choices.append(input);
   var submitBtn = document.createElement("button");
-  submitBtn.textContent = "Submit";
-  choices.append(submitBtn);
+  submitBtn.textContent = "Submit"
+  choices.append(submitBtn)
+
+  submitBtn.addEventListener('click', function() {
+    var player = {
+        name: input.value,
+        yourScore: score
+    }
+
+    var storage = JSON.parse(localStorage.getItem('highScore'))
+    if (storage === null) {
+        storage = []
+    }
+    storage.push(player)
+    localStorage.setItem('highScore', JSON.stringify(storage))
+    window.location.href = 'highscore.html'
+})
+
+console.log("Game over!"); 
 }
+
+  
+   

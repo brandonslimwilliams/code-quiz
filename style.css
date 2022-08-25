@@ -5,11 +5,8 @@ header {
 
 }
 
-#start-containe {
-    margin-top: 20%;
-    margin-left: 25%;
-    margin-right: 25%;
-    line-height: 0;
+#start-container {
+    margin: 20% 25% 0% 25%; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,3 +73,11 @@ header {
     display: none;
   }
   
+  .scores {
+    border-style: groove;
+    border-width: 10px;
+    padding-left: 60px;
+    font-style: oblique;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+  }
